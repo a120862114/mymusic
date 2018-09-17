@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+html {
+	background-color: gray;
+}
+
+ul, li {
+	list-style: none;
+}
+
+ul>li>ul {
+	display: none;
+}
+
+#ul-1>li>ul>li:HOVER {
+	color: #e44311;
+}
+
+#div-ul {
+	position: relative;
+	width: 407.5px;
+	height: 450px;
+	background-color: #771073;
+	cursor: pointer;
+	overflow: scroll;
+	display: none;
+}
+
+#span-id:HOVER {
+	cursor: pointer;
+	color: blue;
+}
+
+#play {
+	width: 300px;
+	height: 30px;
+	background-color: #ecbf13;
+}
+
+.s {
+	width: 110px;
+	background-color: #a9204b;
+}
+
+.d1 {
+	height: 54px;
+	border: 0px;
+	background-color:window;
+	
+}
+
+ .div-ul {
+	background-color:window; 
+	position: absolute;
+	top: 479px;
+	display: none;
+	 
+}
+
+#myaudio {
+	background-color:window;
+	position: absolute;
+	left:116px;
+	display: none;
+} 
+
+</style>
+<title>music</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#ul-1>li").click(function() {
+			console.log($(this));
+			var obj = this;
+			$(this).children().hide();
+			$("#ul-1>li").each(function() {
+				if (this == obj) {
+					$(this).children().toggle();
+				} else {
+					$(this).children().hide();
+				}
+
+			})
+
+		})
+
+	})
+	$(function() {
+		$("#span-id").click(function() {
+			console.log($(this));
+			$("#div-ul").toggle();
+			$(".div-ul").toggle();
+			$("#d1").toggle();
+			$("#myaudio").toggle();
+		})
+	})
+
+	var musicBox = {
+
+		musicDom : null, //播放器对象
+		songs : [], //歌曲目录，用数组来存储
+
+		//初始化音乐盒
+		init : function() {
+			this.musicDom = document.createElement('audio');
+		},
+
+		//添加一首音乐
+		add : function(src) {
+			this.songs.push(src);
+		},
+
+		//根据数组下标决定播放哪一首歌
+		play : function(index) {
+			this.musicDom.src = this.songs[index];
+			this.musicDom.play();
+		},
+
+		//暂停音乐
+		stop : function() {
+			this.musicDom.pause();
+		}
+	}
+
+	function autoPlay() {
+		var myAuto = document.getElementById('myaudio');
+		myAuto.play();
+	}
+	function closePlay() {
+		var myAuto = document.getElementById('myaudio');
+		myAuto.pause();
+		myAuto.load();
+	}
+	$( function(){
+		var cl=$("#myaudio").css("background-color");
+		$(".d1").css("background-color","cl");
+	})
+	
+</script>
+</head>
+<body>
+	<div>
+		<span id="span-id">我的音乐</span>
+	</div>
+	<div id="div-ul">
+		<ul id="ul-1">
+			<li>默认列表
+				<ul>
+					<li><span>1</span> 丢了辛福的猪</li>
+					<li><span>2</span> 秋风落叶</li>
+					<li><span>3</span> 冲动的惩罚</li>
+					<li><span>4</span> 没有你陪伴真的好孤单</li>
+					<li><span>5</span> 小三</li>
+					<li><span>6</span> 不再联系</li>
+					<li><span>7</span> 我在北京你在哪儿</li>
+					<li><span>8</span> 我不后悔</li>
+				</ul>
+			</li>
+			<li>我的最爱
+				<ul>
+					<li><span>1 </span>都选C<audio src="../music/都选C.mp3"></audio></li>
+					<li><span>2</span> 海阔天空<audio src="../music/海阔天空"></audio></li>
+					<li><span>3</span> 许多你以后</li>
+					<li><span>4</span>该死的温柔</li>
+					<li><span>5</span> 老人与海</li>
+					<li><span>6</span> 星星</li>
+					<li><span>7</span> 我的楼兰</li>
+					<li><span>1</span> 我的第一夫人</li>
+					<li><span>2</span> 爱情码头</li>
+					<li><span>3</span> 许多你以后</li>
+					<li><span>4</span>该死的温柔</li>
+					<li><span>5</span> 老人与海</li>
+					<li><span>6</span> 星星</li>
+					<li><span>7</span> 我的楼兰</li>
+					<li><span>1</span> 我的第一夫人</li>
+					</ul>
+			</li>
+		</ul>
+
+	</div>
+	<div class="div-ul">
+		<input class="d1" type="button" onclick="autoPlay()" value="下一曲" />
+		 <input class="d1" type="button" onclick="closePlay()" value="上一曲" />
+	</div>
+	<audio src="../music/都选C.mp3"  id="myaudio" controls="controls"></audio>
+<br><br><br><br><br><br><br>
+</body>
+</html>

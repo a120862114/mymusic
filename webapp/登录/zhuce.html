@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>欢迎注册！</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	function usernamefn(){
+		var reg =/^\w{6,10}$/;
+		if(reg.test((usename.value))){
+			user.className="ok";
+			return true;
+		}else{
+			user.className="err";
+			return false;
+		}
+	}
+	function passwordfn(){
+		var reg =/^\w{6,10}$/;
+		if(reg.test((repw.value))){
+			pw.className="ok";
+			return true;
+		}else{
+			pw.className="err";
+			return false;
+		}
+	}
+	var arr = [["朝阳","海淀","大兴"],["长沙","衡阳","株洲"],["济南","烟台","青岛"]];
+	function fn(){
+		$("#s2").html("<option>请选择</option>");
+		var citys= arr[$("#s1").val()];
+		for(var i=0;i<citys.length;i++){
+		var op=	$("<option></option>");
+		op.text(citys[i]);
+		$("#s2").append(op);
+		}
+	}
+</script>
+<style type="text/css">
+	body{
+		background-color: rgb(245,245,245);
+		/*body会默认自带上下左右的8个像素的外边距*/
+		margin: 0;/*去掉默认的外边距*/
+		font-family: serif;
+    	font-size: 12px;
+    	color: #666;
+    	background-color: #f5f5f5;
+	}
+	#dd{
+		width:100%;
+		height:100%;
+		background-image: url("03.png");
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	html,body{
+		width:100%;
+		height:100%;
+	}
+	#top{
+		width:100%;
+		height:35px;
+	}
+	#top span{
+		position:absolute;
+		font-size: 24px;
+		font-weight: bold;
+		color:orange;
+		left:30px;
+		top:2px;
+	}
+	#form_first{
+		float:right;
+		margin: 0 auto;
+		margin-top: 166px;
+		margin-right: 652px;
+		width:560px;
+		height:465px;
+		background-color: rgba(0,0,0,0.2);
+		padding: 1.2em 0.6em;
+		display: block;
+	}
+	.text span{
+		font-size: 18px;
+		color:white;
+		margin: 0;
+		padding: 10px;
+	}
+	.form_group{
+		margin-bottom: 20px;
+		display: block;
+		margin-left: 110px;
+		margin-top: 20px;
+	}
+	.form_group>label{
+		display: inline-block;
+		text-align:right;
+		color:white;	
+		font-size: 14px;
+		width:90px;
+	}
+	input{
+		border:none;
+	}
+	.form_group>input{
+		padding:5px 20px;
+		width:150px;
+		border-radius: 2px;
+		margin-top: 12px;
+	}
+	#gd{
+		margin: 10px 0 10px 252px;
+		padding: 0;
+		color:white;
+	}
+	#addr{
+		margin: 1px 0 1px 226px;
+	}
+	#birthday{
+		margin: 11px 0 14px 224px;	
+	}
+	#zc{
+		margin: 14px 0 1px 207px;
+	}
+	#zcw{
+		width:183px;
+		height:25px;
+		border-radius: 4px;
+		background-color: #36f2f4;
+	}
+	.ok{
+		display: none;
+	}
+	.err{
+		display: inline;
+		color:red;
+	}
+
+</style>
+</head>
+<body>
+<div id="dd">
+	<!-- 页面顶部 -->
+	<div id="top">
+		<span>欢迎注册</span>
+	</div>
+	<!-- 页面form表单部 -->
+	<div class="container">
+		<form	id="form_first" method="post" action="#">
+			<div class="text"><span>新用户注册</span></div>
+			<div class="form_group">
+				<label for="usename">用户名：</label>
+				<input type="text" placeholder="用户名"  name="usename" id="usename" onblur="usernamefn()">
+				<span id="user" class="ok">6-10位数字、字母或下划线</span>
+			</div>
+			<div class="form_group">
+				<label for="pwd">密 码：</label>
+				<input type="text" placeholder="密码" name="pwd" id="pwd">
+				<span id="pw" class="ok">6-10位数字、字母或下划线</span>
+			</div>	
+			<div class="form_group">
+				<label for="repw">确认密码：</label>
+				<input type="text"placeholder="请确认密码" id="repw" name="repw" onblur="passwordfn()">
+				<span id="rp" class="ok">密码输入错误</span>
+			</div>
+			<div class="form_group">
+				<label for="phone">手机号：</label>
+				<input type="text" placeholder="手机号" id="phone" name="phone">
+				<span id="call" class="ok">请输入正确的手机号</span>				
+			</div>
+			<div class="form_group">
+				<label for="IdN">姓名：</label>
+				<input type="text" id="IdN" name="IdN" placeholder="姓名">
+			</div>
+			<div id="gd">
+				<input type="radio" name="gender" checked="checked" >男<input type="radio" name="gender">女	
+			</div>
+			<div id="birthday">
+				<input type="date" id="birth">
+			</div>
+			<div id="addr">
+			<select id="s1" onchange="fn()">
+				<option>请选择</option>
+				<option value="0">北京</option>
+				<option value="1">湖南</option>
+				<option value="2">山东</option>
+			</select>
+			<select id="s2">
+				<option>请选择</option>
+			</select>
+			</div>
+			<div id="zc">
+				<input type="submit" value="注册"  id="zcw">
+			</div>
+		</form>
+	</div>	
+</div>
+</body>
+</html>

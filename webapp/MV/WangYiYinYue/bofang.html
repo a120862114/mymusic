@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>华语精选音乐</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+/* var count=0;
+onload = function(){
+	//得到第一张图片让其显示
+	var imgs=document.getElementsByTagName("img");
+		imgs[0].style.display="inline-block";
+}
+//开启每2秒执行一次的定时器
+setInterval(function(){
+	//得到所有图片
+	var imgs=document.getElementsByTagName("img");
+	count++;
+	//得到需要显示的图片下标
+	var visibleIndex = count%imgs.length;
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		if(i==visibleIndex){
+			//显示
+			img.style.display="inline-block";
+		}else{
+			//隐藏
+			img.style.display="none";
+		}
+	}
+},2000); */
+
+onload = function(){
+	var imgs = document.getElementsByTagName("img");
+	var w = 663;
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		img.style.left=i*w+"px";
+	}
+}
+//开启定时器1
+ var timeId;
+//调用开启定时器的函数
+//beginfn();
+//鼠标移到div上面后，让定时器1停止
+function stopfn(){
+	clearInterval(timeId);
+} 
+//当鼠标移到图片外面的时候触发
+window.onfocus=function(){
+	beginfn();
+}
+function beginfn(){
+	//为了避免出现连续开启两次定时器
+	//在每次开启之前关闭一下
+	clearInterval(timeId);
+	timeId = setInterval(move,4000);
+}
+/*  onclick = function(){
+	move();
+}  */
+//页面失去焦点停止
+onblur =function(){
+	stopfn();
+}
+//页面获取焦点的时候开始
+onfocus = function(){
+	beginfn();
+}
+
+function move(){
+	//开启定时器2
+	var moveId = setInterval(function(){
+		var imgs = document.getElementsByTagName("img");
+		// 然后遍历每一张图片
+		//让图片的left值不断减小
+	
+		for(var i=0;i<imgs.length;i++){
+			var img = imgs[i];
+			var oldLeft = parseInt(img.style.left);
+			oldLeft-=1;
+			if(oldLeft<=-663){
+				oldLeft=(imgs.length-1)*663;
+				//让定时器停止
+				clearInterval(moveId,1000);
+			}
+			img.style.left=oldLeft+"px";
+		}
+	},2)
+}
+ /* $(function(){
+	//添加鼠标移入移出事件
+	$("#dd:has(a)").hover(function(){
+		$("#dd:has(a)").css("background-color","blue");
+	},function(){
+		$("#dd:has(a)").css("background-color","#555");
+	});
+});  */
+</script>
+<style type="text/css">
+	.nav{
+		width:1100px;
+		height:105px;
+		border: 1px solid red;
+		margin: 0 auto;
+	  position: relative;
+	}
+.frame {
+    width: 1000px;
+    margin: 0 auto;
+    
+}
+p{
+whdth:600px;
+height:200px;
+background-color: #666;
+}
+</style>
+</head>
+<body >
+		    <!-- 页面头部 -->
+	<div class="nav" >
+		<div id="nav_1" ></div>
+		<div id="nav_2"></div>
+	</div>
+		<!-- 页面正文 -->
+	<div class="frame">
+		<div><video poster="" controls="controls"><source src="../shipin/张磊 - 因为一个人.mkv"></video>
+		<br><span>张杰 - 一路之下</span>
+		</div>
+		<div>
+		<form action="">
+			<h3>评论：</h3>
+			
+			<p></p>
+			<input type="submit" value="提交评论">
+		</form>
+		</div>
+		
+	</div>
+		<!-- 页面底部 -->
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link href="index.css" rel="stylesheet"/>
+<script type="text/javascript" src="../main/js/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript">
+ 
+ $(function(){
+	 $("#dl").hover(function(){
+		 $(this).children("ul").toggle();
+	 });
+	 $("#dl").hover(function(){
+		 $(this).children().children("li").css("color","#333");
+ })
+setInterval(function(){
+	var a=$("#tu_kuang").children("#tu_1").css("color","rgba(0,0,0,0.03)");
+				var a=$("#tu_kuang").children("#tu_1").toggle(1000);
+				var a=$("#tu_kuang").children("#tu_2").toggle(2000);
+		 },2000)
+  });	
+	
+ 
+ </script>
+
+</head>
+<body>
+<div id="dabiaoti">
+<div id="logo"><a href="#"><img  src="topbar.png"></a></div>
+<div id="bt">
+<a href="#"><span>发现音乐</span></a>
+<a href="#"><span>我的音乐</span></a>
+<a href="#"><span>朋友</span></a>
+<a href="#"><span>商城</span></a>
+<a href="#"><span>音乐人</span></a>
+<a href="#"><span>下载客户端</span></a>
+</div>
+<div id="hoot"><img src="topbar.png" ></div>
+<div id="sousuoo"><img  src="topbar.png" ></div>
+<input type="text" id="sousuo" placeholder="音乐/电台/视频/用户">
+<a href="#"><div id="sptg">视频投稿</div></a>
+<div id="dl"><a href="#">登录</a><ul><li><a href="#">手机号登录</a></li><li><a href="#">卫星登录</a></li><li><a href="#">qq登录</a></li><li><a href="#">新郎菲薄登录</a></li><li><a href="#">万一有先登录</a></li></ul></div>
+</div>
+<div id="xiaobiao">
+<span>推荐</span>
+<span>排行榜</span>
+<span>歌单</span>
+<span>主播电台</span>
+<span>歌手</span>
+<span>新碟上加</span>
+</div>
+<div id="biaotu"><input type="button"value="<"><div id="tu_kuang"><img src="2.png" id="tu_1"><img src="2.png" id="tu_2"></div><input type="button"value=">"></div>
+<div id="zhong"><div id="zhong_zuo">
+<div id="zhong_shang">
+<div id="xbt">
+<a href="#">热门推荐</a>
+<div id="tab">
+<a href="#">华语</a>
+<span>|</span><a href="#">流行</a><span>|</span><a href="#">摇滚</a><span>|</span><a href="#">民谣</a><span>|</span><a href="#">电子</a>
+
+</div>
+<span class="span_1"><a href="#">更多</a><i></i></span>
+
+</div>
+
+
+
+<ul><li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li></ul>
+
+<a href="#"><img src="ad.jpg"></a>
+</div>
+
+</div>
+<div id="zhong_you">
+<div id="zhong_dl"><p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p><a id="zhong_dlk" href="#">用户登录</a></div>
+
+
+
+
+
+</div></div>
+</body> 
+</html>

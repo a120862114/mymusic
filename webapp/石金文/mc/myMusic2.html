@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+html {
+	background-color: gray;
+}
+
+ul, li {
+	list-style: none;
+}
+
+ul>li>ul {
+	display: none;
+}
+
+#ul-1>li>ul>li:HOVER {
+	color: #e44311;
+}
+
+#div-ul {
+	position: relative;
+	width: 407.5px;
+	height: 450px;
+	background-color: #771073;
+	cursor: pointer;
+	overflow: scroll;
+	display: none;
+}
+
+#span-id:HOVER {
+	cursor: pointer;
+	color: blue;
+}
+
+#play {
+	width: 300px;
+	height: 30px;
+	background-color: #ecbf13;
+}
+
+.s {
+	width: 110px;
+	background-color: #a9204b;
+}
+
+.d1 {
+	height: 54px;
+	border: 0px;
+	background-color: window;
+}
+
+.div-ul {
+	background-color: window;
+	position: absolute;
+	top: 479px;
+	display: none;
+}
+
+#myaudio {
+	background-color: window;
+	position: absolute;
+	left: 116px;
+	display: none;
+}
+</style>
+<title>music</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	var obj;
+
+	//播放列表的展示
+	$(function() {
+		$("#ul-1>li").click(function() {
+			var obj = this;
+			$(this).children().hide();
+			$("#ul-1>li").each(function() {
+				if (this == obj) {
+					$(this).children().toggle();
+				} else {
+					$(this).children().hide();
+				}
+
+			})
+
+		})
+
+	})
+	
+	//隐藏和显示我的音乐
+	$(function() {
+		$("#span-id").click(function() {
+			
+			$("#div-ul").toggle();
+			$(".div-ul").toggle();
+			$("#d1").toggle();
+			$("#myaudio").toggle();
+		})
+	})
+
+	
+	//播放方法
+	function autoPlay() {
+		var myAuto = document.getElementById('myaudio');
+		myAuto.play();
+	}
+	//停止
+	function closePlay() {
+		var myAuto = document.getElementById('myaudio');
+		myAuto.pause();
+		myAuto.load();
+	}
+	//上一曲
+	$(function(){
+		$("#a1").click(function(){
+			
+			$("#ul-1>li>ul>li").each(function(){
+				if(this==obj){
+					var musicName=$(this).prev().text();
+					var ul ="../music/"+musicName+".mp3";
+					$("#myaudio").attr('src',ul);
+					var play=$("#myaudio").get('0');
+					play.load();
+					autoPlay();
+				}
+			})
+			
+		})
+	})
+	
+	//下一曲
+	$(function(){
+		$("#a2").click(function(){
+
+			$("#ul-1>li>ul>li").each(function(){
+				if(this==obj){
+					var musicName=$(this).next().text();
+					var ul ="../music/"+musicName+".mp3";
+					$("#myaudio").attr('src',ul);
+					var play=$("#myaudio").get('0');
+					play.load();
+					autoPlay();
+				}
+			})
+			
+		})
+	})
+	
+	//设置播放控件颜色
+	$( function(){
+		var cl=$("#myaudio").css("background-color");
+		$(".d1").css("background-color","cl");
+	})
+	
+	//从列表中选择音乐播放
+	
+	var play = $(function(){
+		
+		$("#ul-1>li>ul>li").click(function(){
+			//获取js对象
+			 obj = this;
+			//获取所有li遍历
+			$("#ul-1>li>ul>li").each(function(){
+				if(this==obj){
+					var musicName=$(this).text();
+					var ul ="../music/"+musicName+".mp3";
+					$("#myaudio").attr('src',ul);
+					var play=$("#myaudio").get('0');
+					play.load();
+					autoPlay();
+				}
+			})
+		})
+		
+	})
+	
+</script>
+</head>
+<body>
+	<div>
+		<span id="span-id">我的音乐</span>
+	</div>
+	<div id="div-ul">
+		<ul id="ul-1">
+			<li>默认列表
+				<ul>
+					<li>背对背拥抱</li>
+					<li>曹操</li>
+					<li>第几个100天</li>
+					<li>可惜没有如果</li>
+					<li>千千阙歌(live版)</li>
+					<li>我还想她</li>
+					<li>小酒窝(国语)</li>
+					<li>修炼爱情</li>
+					<li>爱情转移</li>
+					<li>不如不见</li>
+					<li>浮夸</li>
+					<li>孤独患者</li>
+					<li>红玫瑰</li>
+					<li>陪你度过漫长岁月</li>
+					<li>淘汰</li>
+					<li>因为爱情</li>
+					<li>最佳损友</li>
+				</ul>
+			</li>
+			<li>我的最爱
+				<ul>
+					<li>都选C</li>
+					<li>海阔天空</li>
+					<li>学不会</li>
+					<li>一千年以后</li>
+					<li>因你而在</li>
+					<li>千里之外</li>
+					<li>听妈妈的话</li>
+					<li>成都</li>
+					<li>南方姑娘</li>
+					<li>传奇</li>
+					<li>不在犹豫</li>
+					<li>真的爱你</li>
+					<li>光辉岁月</li>
+					
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+	<div class="div-ul">
+
+		<input class="d1" id ="a1"type="button" value="上一曲" />
+	    <input class="d1" id="a2"type="button" value="下一曲" />
+	</div>
+	<audio src="" id="myaudio" controls="controls"></audio>
+</body>
+</html>

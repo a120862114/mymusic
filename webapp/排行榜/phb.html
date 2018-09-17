@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	html{
+		background-color: #987654;
+	}
+	body {
+	    font-size: 12px;
+	    color: #333;
+	    font-family: Arial, Helvetica, sans-serif;
+	}
+	.first{
+		width: 77px;
+	}
+	th{
+		background-color: #f7f7f7;
+		background-repeat: repeat-x;
+		text-align: left;
+	}
+	.wp{
+		height: 18px;
+		line-height: 18px;
+		padding: 8px 10px;
+		font-size: 16px;
+	}
+	.w2{
+		width: 91px;
+	}
+	.w3{
+		width: 14%;
+	}
+	.zhong{
+		overflow:hidden;
+		background-image: url(phb.jpg);
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	.phb-l{
+		width: 400px;
+		float: left;
+		margin: 70px 0 0 100px;
+    overflow: hidden;
+    display: block;
+	}
+	.phb-l h2{
+    padding: 0 10px 12px 15px;
+    font-size: 14px;
+    color: yellow;
+	}
+	.phb-l .item {
+    padding-left: 50px;
+    color: black;
+	}
+	.phb-l .p-l {
+    display: inline;
+    float: left;
+    margin-left: -20px;
+    overflow: hidden;
+    width: 40px;
+	}
+	.phb-l .name {
+    width: 100px;
+    overflow: hidden;
+    margin-top: 2px;
+    margin-bottom: 8px;
+	}
+	.phb-l .item a{
+		color: red;
+	}
+	#phb{
+	position:relative;
+		padding: 0 30px 40px 40px; 
+		overflow: hidden;
+		width: 1300px;
+		float:right;
+		margin-top:70px;
+		height: 700px;
+		display: block;
+	}
+	#phb h3{
+		color: red;
+		font-size: 16px;
+	}
+	.even{
+		background-color: #eee;
+	}
+	.even .song{
+		float: left;
+		width: 60%;
+	}
+	.rank .hd .num {
+    float: left;
+    width: 25px;
+    margin-left: 0;
+    text-align: center;
+    }
+	.txt {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    overflow: hidden;
+    margin-top: 2px;
+	}
+	.table {
+    width: 60%;
+    border: 1px solid #d9d9d9;
+	}	
+	.g-topbar{
+		position: absolute;
+		width:100%;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		text-align: center;
+	}
+	.m-top{
+		width:100%;
+		position: relative;
+		height: 70px;
+		background-color: #242424;
+		border-bottom: 1px solid #000;
+	}
+	.logo{
+		float: left;
+		width: 176px;
+		height: 69px;
+		background-position: 0 0;
+	}
+	.logo a{
+		height:70px;
+		color: white;
+		padding-right: 20px
+	}
+	.m-nav{
+		float: left;
+	}
+	.m-nav li span{
+		float: left;
+		height: 70px;
+		font-size: 14px;
+	}
+	.m-nav li{
+		position: relative;
+		float: left;
+		font-size: 14px;
+		height: 70px;
+	}
+	.m-nav a{
+		float: left;
+		height: 70px;
+		line-height:70px;
+		font-size: 14px;
+		padding: 0 19px;
+		text-align: center;
+		color: #ccc;
+	}
+	a{
+		text-decoration: none;
+		color: #333;
+	}
+	ul,li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.line {
+		margin: 0 8px 0 10px;
+		color: #c2c2c2;
+	}
+	.g-ft {
+    position: relative;
+    height: 148px;
+    overflow: hidden;
+    border-top: 1px solid #d3d3d3;
+    background: #f2f2f2;
+	}
+	.even .ply {
+    width: 20px;
+    height: 17px;
+    cursor: pointer;
+    background-position:0 -103px;
+    margin:2px 8px 0 0;
+    float: left;
+	}
+	.even .ply{
+		background-image: url(table.png);
+	}
+	.m-ft .copy {
+    float: left;
+    width: 520px;
+    padding-top: 15px;
+    line-height: 24px;
+	}
+	.m-ft{
+		width: 980px;
+		margin: 0 auto;
+	}
+	.m-ft .enter{
+		float: right;
+		width: 450px;
+		margin-top: 30px;
+	}
+	.m-ft .enter .unit:first-child {
+		margin-left: 0;
+	}
+	.m-ft .enter .unit {
+		float: left;
+		width: 70px;
+		height: 70px;
+		margin-left:25px;
+		text-align: center;
+		color: #666;
+	}
+	.m-ft .logo{
+		background: url(foot_enter_new.png?5ef3654…) no-repeat;
+		background-size: 110px 450px;
+		display: block;
+		float: none;
+		width: 44px;
+		height: 44px;
+		margin: 0 auto;
+	}
+	.m-ft .enter .tt {
+	    display: inline-block;
+	    margin: 5px 5px 0;
+	    width: 60px;
+	    height: 10px;
+	}
+	 .m-ft .logo1{
+		background-position: 0 0;
+	}
+	.m-ft .logo2{
+		background-position: -60px 0;
+	}
+	.m-ft .logo3{
+		background-position: 0 -50px;
+	}
+	.m-ft .logo4{
+		background-position: -60px -50px;
+	}
+	.m-ft .logo5{
+		background-position: 0 -100px;
+	}
+</style>
+</head>
+<body>
+	<div class="g-topbar">
+		<div class="m-top">
+			<div class="wrap">
+				<h1 class="logo"><a href="#">网易云音乐</a></h1>
+				<ul class="m-nav">
+					<li><span><a href="#">发现音乐</a></span></li>
+					<li><span><a href="#">我的音乐</a></span></li>
+					<li><span><a href="#">朋友</a></span></li>
+					<li><span><a href="#">商城</a></span></li>
+					<li><span><a href="#">音乐人</a></span></li>
+					<li><span><a href="#">下载客户端</a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="zhong">
+		<div class="phb-l">
+			<h2>云音乐特色榜</h2>
+			<ul>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">云音乐飙升榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">云音乐新歌榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">云音乐原创榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">云音乐新歌榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+			</ul>
+			<h2>全球特色榜</h2>
+			<ul>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/VsWZ7MPgAzvH16DE1Lv8lg==/109951163435036902.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">说唱TOP榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/5tgOCD4jiPKBGt7znJl-2g==/18822539557941307.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">云音乐电音榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/bZvjH5KTuvAT0YXlVa-RtQ==/109951163326845001.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">抖音排行榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+				<li>
+					<div class="item">
+						<div class="p-l">
+							<img src="http://p1.music.126.net/CUqQp33MZf_m0BwH4u0V6A==/109951163078922993.jpg?param=40y40">
+						</div>
+						<p class="name"><a href="#">电竞音乐榜</a></p>
+						<p>每天更新</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="phb"align="center">
+			<h3>排行榜</h3>
+			<div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="first"></th>
+							<th><div class="wp">标题</div></th>
+							<th class="w2"><div class="wp">时长</div></th>
+							<th class="w3"><div class="wp">歌手</div></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">1</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">不染</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">05:25</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>毛不易</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">2</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">可不可以</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">04:00</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>张紫豪</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">3</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">去年夏天</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">04:05</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>王大毛</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">4</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">目不转睛</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">02:42</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>王以太</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">5</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">可能否</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">03:47</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>木小雅</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">6</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">陷阱</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">04:40</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>王北车</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">7</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">最美的遇见</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">04:45</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>徐佳莹</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">8</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">倒数</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">03:49</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>邓紫棋</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">9</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">往后余生</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">03:15</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>马良</span>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td class="rank">
+								<div class="hd">
+									<span class="num">10</span>
+								</div>
+							</td>
+							<td>
+								<div class="song">
+									<span class="ply">&nbsp;</span>
+									<span class="txt">从头</span>
+								</div>
+							</td>
+							<td>
+								<div class="s">
+									<span class="dur">03:28</span>
+								</div>
+							</td>
+							<td>
+								<div class="text">
+									<span>陈粒</span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="g-ft">
+		<div class="m-ft">
+			<div class="wrap">
+				<div class="copy">
+					<p>
+						<a href="#">关于网易</a>
+						<span class="line">|</span>
+						<a href="#">客户服务</a>
+						<span class="line">|</span>
+						<a href="#">服务条款</a>
+						<span class="line">|</span>
+						<a href="#">网站导航</a>
+						<span class="line">|</span>
+						<a href="#">意见反馈</a>
+					</p>
+					<p>
+						<span>网易公司版权所有©1997-2018</span>
+						<span>杭州乐读科技有限公司运营：</span>
+						<span>浙网文[2018]3506-263号</span>
+					</p>
+					<p>
+						<span>违法和不良信息举报电话：0571-89853516</span>
+						<span>举报邮箱：</span>
+						<a href="mailto:cloudmusicservice@163.com">cloudmusicservice@163.com</a>
+					</p>
+				</div>
+				<ul class="enter">
+					<li class="unit">
+						<a class="logo logo1"href="#"></a>
+						<span class="tt">独立音乐人</span>
+					</li>
+					<li class="unit">
+						<a class="logo logo2"href="#"></a>
+						<span class="tt">音乐专栏</span>
+					</li>
+					<li class="unit">
+						<a class="logo logo3"href="#"></a>
+						<span class="tt">自媒体</span>
+					</li>
+					<li class="unit">
+						<a class="logo logo4"href="#"></a>
+						<span class="tt">赞赏</span>
+					</li>
+					<li class="unit">
+						<a class="logo logo5"href="#"></a>
+						<span class="tt">视频奖励</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

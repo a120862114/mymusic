@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link href="index.css" rel="stylesheet"/>
+<script type="text/javascript" src="../main/js/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript">
+ 
+ $(function(){
+	 $("#dl").hover(function(){
+		 $(this).children("ul").toggle();
+	 });
+	 $("#dl").hover(function(){
+		 $(this).children().children("li").css("color","#333");
+ })
+setInterval(function(){
+	var a=$("#tu_kuang").children("#tu_1").css("color","rgba(0,0,0,0.03)");
+				var a=$("#tu_kuang").children("#tu_1").toggle(1000);
+				var a=$("#tu_kuang").children("#tu_2").toggle(2000);
+		 },2000)
+  });	
+	
+ 
+ </script>
+ <style type="text/css">
+ body{
+
+		margin: 0px;
+}
+#dabiaoti{
+	width: 1600px;
+	background-color:#333;
+	border: 1px solid red;	
+	overflow: hidden;
+}
+#logo{
+	float: left;
+	position:absolute;
+	width: 	177px;
+	height: 69px;
+	overflow: hidden;
+
+}
+#logo>a>img{
+ position: absolute;
+left: 10px;
+}
+#bt{
+	margin-left: 190px;
+}
+#bt>a>span{
+	color: #ccc;
+	display: inline-block;
+	line-height: 70px;
+	width: 80px;
+	font-size: 14px;
+	text-align: center;
+}
+#bt>a>span:hover{
+	background-color: #000;
+	color: #fff;
+}
+#hoot{
+    overflow: hidden;
+    width: 218px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    left: 494px;
+    top: 17px;
+}
+#sousuo{
+    margin: 20px;
+    padding: 5px;
+    width: 147px;
+    margin-left: 32px;
+    text-indent: 20px;
+    border-radius: 30px;
+    left: 705px;
+    display: block;
+    margin-left: 716px;
+    margin-top: -55px;
+    
+}
+#sousuoo{
+    overflow: hidden;
+    width: 23px;
+    height: 122px;
+    display: block;
+    position:absolute;
+    left: 715px;
+    top: -84px;
+
+}
+
+
+#sptg{
+    overflow: hidden;
+    width: 90px;
+    height: 32px;
+    position: absolute;
+    left: 890px;
+    top: 15px;
+    border-radius: 30px ;
+    background-image: url("topbar.png");
+    background-position: 0px 75px;
+    font-size: 14px;
+     text-indent:30px;
+    line-height:32px;
+color:#ccc;
+   text-decoration: none;
+   
+}
+#sptg:hover {
+	background-image:  url("topbar.png");
+	background-position: -340px 75px;
+	color: #fff;
+}
+#dl{
+	width: 50px;
+	height: 45px;	
+	position:absolute;
+	left: 995px; 
+	top: 20px;
+	background-image: url("topbar.png");
+	background-position: -200px -50px;
+}
+#dl>a{
+	color: #787878;
+	font-size: 12px;
+	text-decoration: none;
+}
+#dl>ul{
+	width: 100px;
+	display:none;
+position:absolute;
+	left: -40px;
+	background-color: #333;
+}
+#dl>ul>li>a{
+	color: #000;
+	text-decoration: none;
+}
+#dl>ul>li>a:hover {
+	color: #fff;
+}
+#xiaobiao{
+	width: 1600px;
+	height: 34px;
+	background-color: red;
+}
+#xiaobiao>span{
+	display:inline-block;
+	width:100px;	
+	text-align:center;
+	border: 1px solid #ddd;
+	margin-left: 20px;
+	border-radius: 30px;
+	margin-top: 5px;
+	color: #fff;
+}
+#xiaobiao>span:nth-child(1) {
+	margin-left: 250px;
+}
+#biaotu{
+	width: 1600px;
+	height: 336px;
+	border: 1px solid red;
+	background-color: #e78178;
+	overflow: hidden;
+}
+#tu_kuang{
+	width: 730px;
+	height: 336px;
+	left:200px;
+	top:100px;
+	border: 1px solid red;
+	position:absolute;
+	display: block;
+	overflow: hidden;
+}
+#tu_kuang>img{
+		float: left;
+	position: absolute;
+	
+}
+
+
+
+#biaotu>input{
+	width: 50px;
+	height: 50px;
+	background-color: rgba(0,0,0,0.03);
+	line-height: 380px;
+	
+}
+#zhong{
+	width: 980px;
+	height: 1503px;
+	border: 1px solid red;
+	margin-left: 200px;
+}
+#zhong_zuo{
+	width: 729px;
+	height: 1530px;
+	border: 1px solid red;
+	float: left;
+	
+}
+#zhong_you{
+	width: 240px;
+	height: 1500px;
+	border: 1px solid red;
+	float: left;
+}
+#zhong_shang{
+	width: 689px;
+	height: 35px;
+	margin-top:30px;
+	margin-left:20px;	
+	border: 1px solid red;
+}
+#zhong_zhong{
+	width: 689px;
+	height: 35px;
+	margin-top:525px;
+	margin-left:20px;	
+	border: 1px solid red;
+}
+#zhong_shang>ul{
+	border: 1px solid red;
+	overflow: hidden;
+	display: block;
+	margin-top: 20px;
+}
+#zhong_shang>ul>li{
+    margin-left: -30px;
+    padding-left: 42px;
+    float: left;
+    display: inline-block;
+    width: 140px;
+    height: 188px;
+    overflow: hidden;
+    line-height: 1.4;
+    font-size: 12px;
+}
+#zhong_shang>ul>li>a{
+	color: #333;
+	text-decoration: none;
+}
+#zhong_shang>ul>li>a:hover {
+	text-decoration: underline;
+}
+#xbt{
+	    height: 33px;
+    padding: 0 10px 0 34px;
+    background-position: -225px -156px;
+    border-bottom: 2px solid #C10D0C;
+        background: url(index.png) no-repeat -225px -155px;
+}
+
+#xbt>a{
+    float: left;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+        text-decoration: none;
+        color: #333;
+}
+#tab{
+	    float: left;
+    margin: 7px 0 0 20px;
+        display: block;
+            font-size: 12px;
+}
+#tab>a{
+color: #666;
+margin-left: 10px;
+text-decoration: none;
+}
+#tab>span{
+	    margin: 0 10px;
+    color: #ccc;
+}
+#tab>a:hover {
+	text-decoration: underline;
+}
+.span_1{
+	    float: right;
+    margin-top: 9px;
+    font-size: 12px;
+}
+.span_1>a{
+	color: #333;
+	text-decoration: none;
+}
+.span_1>a:hover{
+	text-decoration: underline;
+}
+.span_1>i{
+	    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    vertical-align: middle;
+      background: url(index.png) no-repeat -2px -242px;
+}
+#zhong_dl{
+	    height: 126px;
+    padding-top: 0;
+        background: url(index.png) no-repeat -10px 0px;
+}
+#zhong_dl>p{
+	    width: 205px;
+    margin: 0 auto;
+    padding: 16px 0;
+    line-height: 22px;
+        color: #666;
+            font-size: 12px;
+	}
+#zhong_dlk{
+	    display: block;
+    width: 100px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 1px 0 #8a060b;
+        margin: 0 auto;
+            background-position: 0 -195px;
+                background: url(index.png) no-repeat 0 -194px;
+                font-size: 12px;
+                text-decoration: none;
+}
+#zhong_dlk:hover {
+	 background: url(index.png) no-repeat -110px -194px;
+}
+ #xdsj{
+     height: 184px;
+    padding-left: 16px;
+    background: #f5f5f5;
+    border: 1px solid red;
+    margin-top: 20px;
+ }
+ #bangdan{
+     height: 472px;
+    margin-top: 20px;
+    padding-left: 1px;
+        background: url(index.png) no-repeat;
+ 
+ }
+}
+
+ </style>
+</head>
+<body>
+<div id="dabiaoti">
+<div></div>
+</div>
+<div id="shang"><div id="dabiaoti">
+<div id="logo"><a href="#"><img  src="topbar.png"></a></div>
+<div id="bt">
+<a href="#"><span>发现音乐</span></a>
+<a href="#"><span>我的音乐</span></a>
+<a href="#"><span>朋友</span></a>
+<a href="#"><span>商城</span></a>
+<a href="#"><span>音乐人</span></a>
+<a href="#"><span>下载客户端</span></a>
+</div>
+<div id="hoot"><img src="topbar.png" ></div>
+<div id="sousuoo"><img  src="topbar.png" ></div>
+<input type="text" id="sousuo" placeholder="音乐/电台/视频/用户">
+<a href="#"><div id="sptg">视频投稿</div></a>
+<div id="dl"><a href="#">登录</a><ul><li><a href="#">手机号登录</a></li><li><a href="#">卫星登录</a></li><li><a href="#">qq登录</a></li><li><a href="#">新郎菲薄登录</a></li><li><a href="#">万一有先登录</a></li></ul></div>
+</div>
+<div id="xiaobiao">
+<span>推荐</span>
+<span>排行榜</span>
+<span>歌单</span>
+<span>主播电台</span>
+<span>歌手</span>
+<span>新碟上加</span>
+</div>
+<div id="biaotu"><input type="button"value="<"><div id="tu_kuang"><img src="2.png" id="tu_1"><img src="2.png" id="tu_2"></div><input type="button"value=">"></div>
+<div id="zhong">
+<div id="zhong_zuo">
+<div id="zhong_shang">
+<div id="xbt">
+<a href="#">热门推荐</a>
+<div id="tab">
+<a href="#">华语</a>
+<span>|</span><a href="#">流行</a><span>|</span><a href="#">摇滚</a><span>|</span><a href="#">民谣</a><span>|</span><a href="#">电子</a>
+
+</div>
+<span class="span_1"><a href="#">更多</a><i></i></span>
+
+</div>
+
+
+
+<ul><li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li>
+<li><a href="#"><img src="3.jpg"></a><a href="#">英语课上的那些英文歌【青春印象</a></li></ul>
+
+<a href="#"><img src="ad.jpg"></a>
+
+</div>
+
+<div id="zhong_zhong">
+<div id="xbt">
+<a href="#">新碟商家</a>
+<span class="span_1"><a href="#">更多</a><i></i></span>
+</div>
+<div id="xdsj"></div>
+<div id="xbt">
+<a href="#">榜单</a>
+<span class="span_1"><a href="#">更多</a><i></i></span>
+</div>
+<div id="bangdan"></div>
+</div>
+</div>
+<div id="zhong_you">
+<div id="zhong_dl"><p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p><a id="zhong_dlk" href="#">用户登录</a></div>
+
+
+
+
+
+</div></div></div>
+
+<div id="xia"></div>
+
+</body>
+</html>

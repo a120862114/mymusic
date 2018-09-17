@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>华语精选音乐</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+/* var count=0;
+onload = function(){
+	//得到第一张图片让其显示
+	var imgs=document.getElementsByTagName("img");
+		imgs[0].style.display="inline-block";
+}
+//开启每2秒执行一次的定时器
+setInterval(function(){
+	//得到所有图片
+	var imgs=document.getElementsByTagName("img");
+	count++;
+	//得到需要显示的图片下标
+	var visibleIndex = count%imgs.length;
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		if(i==visibleIndex){
+			//显示
+			img.style.display="inline-block";
+		}else{
+			//隐藏
+			img.style.display="none";
+		}
+	}
+},2000); */
+
+onload = function(){
+	//var imgs = document.getElementsByTagName("img");
+	var imgs =$(".a");
+	var w = 663;
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		img.style.left=i*w+"px";
+	}
+}
+//开启定时器1
+ var timeId;
+//调用开启定时器的函数
+beginfn();
+//鼠标移到div上面后，让定时器1停止
+function stopfn(){
+	clearInterval(timeId);
+} 
+//当鼠标移到图片外面的时候触发
+window.onfocus=function(){
+	beginfn();
+}
+window.onblur=function(){
+	stopfn();
+}
+function beginfn(){
+	//为了避免出现连续开启两次定时器
+	//在每次开启之前关闭一下
+	clearInterval(timeId);
+	timeId = setInterval(move,4000);
+}
+/*  onclick = function(){
+	move();
+}  */
+//页面失去焦点停止
+onblur =function(){
+	stopfn();
+}
+//页面获取焦点的时候开始
+onfocus = function(){
+	beginfn();
+}
+
+function move(){
+	//开启定时器2
+	var moveId = setInterval(function(){
+		//var imgs = document.getElementsByTagName("img");
+		var imgs = $(".a");
+		// 然后遍历每一张图片
+		//让图片的left值不断减小
+	
+		for(var i=0;i<imgs.length;i++){
+			var img = imgs[i];
+			var oldLeft = parseInt(img.style.left);
+			oldLeft-=1;
+			if(oldLeft<=-663){
+				oldLeft=(imgs.length-1)*663;
+				//让定时器停止
+				clearInterval(moveId,1000);
+			}
+			img.style.left=oldLeft+"px";
+		}
+	},2)
+}
+ /* $(function(){
+	//添加鼠标移入移出事件
+	$("#dd:has(a)").hover(function(){
+		$("#dd:has(a)").css("background-color","blue");
+	},function(){
+		$("#dd:has(a)").css("background-color","#555");
+	});
+});  */
+</script>
+<style type="text/css">
+	.nav{
+		width:1100px;
+		height:105px;
+		border: 1px solid red;
+		margin: 0 auto;
+	  position: relative;
+	}
+.frame {
+    width: 1000px;
+    margin: 0 auto;
+    
+}
+.picchangebox {
+    width: 663px;
+    height: 325px;
+    float: left;
+    margin: 20px 0 0 0;
+    
+    padding:0;
+    
+}
+.mvhotlist {
+    width: 317px;
+    height: 325px;
+    float: right;
+    margin: 20px 0 0 0;
+    background-color: #ddd;
+    padding:0;
+   
+}	
+.ClearBoth {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    height: 1px;
+    margin:0;
+		padding:0;
+    }
+.radiowrap{
+	whdth:1000px;
+	height:558px;
+	margin:18px 0 0 0;
+	padding:0;
+}
+.container{
+		width:663px;
+		height:325px;
+		overflow: hidden;
+    position: relative;  
+    margin: 0;
+    padding: 0;
+}
+
+.container ul{
+	margin:0;
+	padding:0;
+}
+ 	li,ul{
+ 	list-style: none;
+ 	}
+ 	.a{
+	width:663px;
+	height:325px;
+	position: absolute;
+	
+	}
+	.leftCon {
+    width: 210px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+.radiowrap .title {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #cfcfcf;
+    font-size: 16px;
+    color: #fff;
+    font-weight: normal;
+}
+.rightCon {
+    width: 780px;
+    float: right;
+    position: relative;
+    z-index: 2;
+    _padding-bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+.mvhotlist h3 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.mvhotlist h3 span {
+    float: left;
+    width: 219px;
+    padding: 0 0 0 15px;
+    margin: 0 1px 0 0;
+    background: #deb200;
+    color: #FFF;
+    font-weight: normal;
+}
+.mvhotlist h3 a {
+    width: 82px;
+    float: left;
+    font-weight: normal;
+    color: #fff;
+    /* background: url(../images/bg.png) -8px -246px no-repeat; */
+    background-color: #363636;
+    text-align: center;
+}
+.mvhotlist ul {
+    background: #363636;
+    margin: 2px 0 0 0;
+    height: 293px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    margin: 0;
+    padding: 0;
+}
+.mvhotlist ul li a {
+    height: 29px;
+    display: block;
+    line-height: 32px;
+    cursor: pointer;
+    _line-height: 28px;
+    padding-left: 3px;
+}
+.mvhotlist ul a{
+	    color: #fff;
+}
+.mvlist {
+    position: relative;
+    z-index: 90;
+    width: 800px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.mvlist div{
+	width:140px;
+	height:100px;
+	float:left;
+	margin: 0px 20px 10px 0px;
+	cursor: pointer;
+	
+}
+.mvlist div video {
+    width: 140px;
+    height: 78px;
+    
+}
+.mvlist div img {
+    width: 140px;
+    height: 78px;
+    
+}
+.mvlist div span{
+	color: #555;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    width: 124px;
+    margin: 5px 0 0 3px;
+    font-family: '微软雅黑', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.radiowrap .title {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #cfcfcf;
+    font-size: 16px;
+    color: #fff;
+    font-weight: normal;
+    
+}
+
+.radiolist {
+    position: relative;
+    overflow: hidden;
+    
+    margin:0;
+}
+dd {
+    display: block;
+    -webkit-margin-start: 40px;
+}
+.radiolist dd {
+    font-size: 12px;
+    height: 36px;
+    line-height: 36px;
+    font-family: Microsoft YaHei;
+    margin: 0;
+    padding: 0;
+}
+.radiolist dd a {
+    display: block;
+    height: 36px;
+    color: #555;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.radiolist>dl dd a:hover{
+		background-color: #2196F3;
+	}
+.page {
+    text-align: center;
+    font-family: Arial;
+    font-size: 14px;
+    font-style: italic;
+    color: #333;
+    word-spacing: 10px;
+    margin: 15px 0 0 0;
+    position: relative;
+    top: 0;
+    padding:0;
+</style>
+</head>
+<body >
+		    <!-- 页面头部 -->
+	<div class="nav" >
+		<div id="nav_1" ></div>
+		<div id="nav_2"></div>
+	</div>
+		<!-- 页面正文 -->
+	<div class="frame">
+		<div class="picchangebox">
+			<div class="container" id="idTransformView2" onmouseover="stopfn()" onmouseout="beginfn()">
+				 <ul class="slider slider2" id="idSlider2">
+					<li><a href=""><img class="a"	 src="../imgs/shaonianlunbotu.jpg" title="TFBOYS - 最好的少年，最好的那年"></a></li>
+					<li><a href=""><img class="a"  src="../imgs/zhangyixinlunbotu.jpg" title="张艺兴、Alan Walker - Sheep (Alan Walker Relift)"></a></li>
+					<li><a href=""><img class="a"  src="../imgs/zhangjielunbotu.jpg" title="张杰 - 不想想你"></a></li>
+					<li><a href=""><img class="a"  src="../imgs/chenyixunlunbotu.jpg" title="陈奕迅、eason and the duo band - 可一可再"></a></li>
+					<li><a href=""><img class="a"  src="../imgs/wuyuetianlunbotu.jpg" title="五月天、张惠妹 - 离开地球表面三天三夜 (2018“人生无限公司”巡演北京站)"></a></li>
+				</ul>
+				<ul></ul>
+			</div>
+		</div>
+		<div class="mvhotlist">
+			<h3><span>MV热播总排行</span><a>更多</a></h3>
+			<ul>
+				<li>
+					<a>
+					<span class="one">1</span>
+					<span class="name">巴塔木儿歌 - 我的小猪</span>
+					<em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+            <span class="two">2</span>
+            <span class="name">筷子兄弟 - 小苹果</span>
+            <em></em>
+            </a>
+				</li>
+				<li>
+					<a>
+						<span class="three">3</span>
+            <span class="name">儿歌歌曲 - 小跳蛙</span>
+            <em></em>
+           
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="four">4</span>
+            <span class="name">筷子兄弟 - 小水果</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="five">5</span>
+            <span class="name">儿童歌曲 - 我的好妈妈</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="six">6</span>
+            <span class="name">杨烁 - 找朋友</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="seven">7</span>
+            <span class="name">儿童歌曲 - 小毛驴</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="nine">8</span>
+            <span class="name">儿童歌曲 - 拔萝卜</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="ten">9</span>
+            <span class="name">儿童歌曲 - 小兔子乖乖</span>
+            <em></em>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span class="eight">10</span>
+            <span class="name">儿童歌曲 - 小苹果(儿童舞蹈版)</span>
+            <em></em>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="ClearBoth"></div>
+		<div class="radiowrap">
+			<div class="leftCon">
+				<h3 class="title">MV分类</h3>
+				<div class="radiolist" id="radioList">
+					<dl>
+						<dd id="dd"><a href="">新歌推荐</a></dd>
+						<dd><a href="">欧美精选</a></dd>
+						<dd><a href="">日韩精选</a></dd>
+						<dd><a href="">华语精选</a></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="rightCon">
+				<h3 class="title"><label id="mvName">华语精选</label> (<label id="mvNum">6970</label>个)</h3>
+				<div class="mvlist">
+          				
+          	
+          	<div><a href="bofang.html" title="张杰 - 一路之下"  target="_Blank"><img src="../tupian/16.jpg" ></a>
+          	<span>张杰 - 一路之下</span>
+          	</div>
+          	<div><video poster="../tupian/2.jpg" ><source src=""></video>
+          	<span>丁思忖 - 一直在你身边</span>
+          	</div>
+          	<div><video poster="../tupian/3.jpg" ><source src=""></video>
+          	<span>于文文 - 偷不走的现在</span>
+          	</div>
+          	<div><video poster="../tupian/4.jpg" ><source src=""></video>
+          	<span>NCT U - New Dream (Sung by Taeil、在玹)</span>
+          	</div>
+          	<div><video poster="../tupian/5.jpg" ><source src=""></video>
+          	<span>毛不易 - 借</span>
+          	</div>
+          	<div><video poster="../tupian/6.jpg" ><source src=""></video>
+          	<span>L.I.K.E - 初夏</span>
+          	</div>
+          	<div><video poster="../tupian/7.jpg" ><source src=""></video>
+          	<span>SING女团 - 不羡</span>
+          	</div>
+          	<div><video poster="../tupian/8.jpg" ><source src=""></video>
+          	<span>吴若希 - 为何你要背叛我</span>
+          	</div>
+          	<div><video poster="../tupian/9.jpg" ><source src=""></video>
+          	<span>肖战、伍嘉成、彭楚粤、谷嘉诚 - 斗破苍穹</span>
+          	</div>
+            <div><video poster="../tupian/10.jpg" ><source src=""></video>
+          	<span>张杰 - Jump</span>
+          	</div>
+          	<div><video poster="../tupian/11.jpg" ><source src=""></video>
+          	<span>蔡健雅 - 你我之间</span>
+          	</div>
+          	<div><video poster="../tupian/12.jpg" ><source src=""></video>
+          	<span>娄艺潇 - 缱绻</span>
+          	</div>
+          	<div><video poster="../tupian/13.jpg" ><source src=""></video>
+          	<span>刘惜君 - 如昨</span>
+          	</div>
+          	<div><video poster="../tupian/14.jpg" ><source src=""></video>
+          	<span>吴亦凡 - Hold Me Down (中文版)</span>
+          	</div>
+          	<div><video poster="../tupian/15.jpg" ><source src=""></video>
+          	<span>胡夏 - 红墙叹</span>
+          	</div>
+          	<div><a href="" title="潘玮柏、袁娅维 - Moonlight"><video poster="../tupian/1.jpg" ><source src=""></video></a>
+          		<br><span>潘玮柏、袁娅维 - Moonlight</span>
+          	</div>
+          	<div><video poster="../tupian/17.jpg" ><source src=""></video>
+          	<span>董又霖 - 一个人去巴黎</span>
+          	</div>
+          	<div><video poster="../tupian/18.jpg" ><source src=""></video>
+          	<span>张杰 - 谜</span>
+          	</div>
+          	<div><video poster="../tupian/19.jpg" ><source src=""></video>
+          	<span>南征北战NZBZ - 星空</span>
+          	</div>
+          	<div><video poster="../tupian/20.jpg" ><source src=""></video>
+          	<span>杨紫、邓伦 - 天地无霜</span>
+          	</div>
+          	
+        </div>
+        		<div class="page"><a href="/mvweb/html/index_9_1.html"><em>上一页</em></a>&nbsp;&nbsp;<a href="/mvweb/html/index_9_1.html">1</a>
+          	<a href="/mvweb/html/index_9_2.html">2</a>
+          	<a href="/mvweb/html/index_9_3.html">3</a>
+          	<a href="/mvweb/html/index_9_4.html">4</a>
+          	<a href="/mvweb/html/index_9_5.html">5</a>&nbsp;"..."
+          	<a href="/mvweb/html/index_9_20.html">20</a>&nbsp;
+          	<a href="/mvweb/html/index_9_3.html"><em>下一页</em></a>
+          	</div>
+			</div>
+		</div>
+		
+	</div>
+		<!-- 页面底部 -->
+	<div></div>
+</body>
+</html>
